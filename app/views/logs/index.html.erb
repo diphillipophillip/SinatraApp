@@ -1,0 +1,47 @@
+
+<div style='margin-top: 18%'>
+
+<% if @logs.size == 0 %> 
+<center>
+<h1 class='text-light'> You have <%=@logs.size%> workouts logged! </h1> <h2 class='text-light'>Please hit the 'New Log' button so that you can make your first Log!</h2> 
+</center>
+
+</form>
+
+
+<% elsif @logs.size == 1 %>
+<center>
+<h1 class='text-light'>You have logged <%=@logs.size%> time! Click the Link to view your Log. </h1>
+</center>
+<% current_user.logs.each do |i| %> 
+    <center>
+    <h3 class='text-primary'><a><%=i.workout_type%></a> <a href="/logs/<%= i.id %>"><%=i.date%></a></h3>
+    </center>
+    <%end%>
+
+<% elsif @logs.size > 1%>
+<h1 class='text-light'>You have logged <%=@logs.size%> times! Click the Link to view a specific Log.</h1>
+<% current_user.logs.each do |i| %>
+    <center>
+    <h3 class='text-primary'><a><%=i.workout_type%></a> <a href="/logs/<%= i.id %>"><%=i.date%></a></h3> 
+    </center> 
+    <%end%>
+<%end%>
+
+<center>
+<form method='GET' action='/logs/new'>
+<button class='btn btn-primary' style='margin-top: 2%' type="text" name="new_log">New Log</button>
+</form>
+</center>
+
+<hr class='bg-light' width='50%'>
+
+<form method='GET' action='/logout'> 
+<center>
+<button class='btn btn-primary' type="submit" value="Submit">Logout</button> 
+</center>
+</form>
+
+
+</div>
+

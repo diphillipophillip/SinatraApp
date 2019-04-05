@@ -1,0 +1,40 @@
+<div class='row d-flex justify-content-center' style='margin-top: 18%;'>
+<div class='col-lg-6'>
+
+<h1 class='text-light'>Sign Up</h1> 
+
+
+
+<% if @user && @user.errors.any? %> 
+  <div id="error_explanation">
+    <h3 class='text-primary'><%= (@user.errors.count) %> Error(s) prohibited this log from being saved:</h3>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<form action='/users' method="POST"> 
+
+ <p> 
+  <label for='email' class='text-primary'>Email:</label> 
+  <input class='form-control' type="email" name="email" id="email"> 
+</p> 
+
+
+
+<p> 
+<label for='password' class='text-primary'>Password:</label> 
+<input class='form-control' type="password" name="password" id="password"> 
+</p> 
+
+
+  <input class='btn btn-primary' type="submit" value="Submit"> 
+
+  </form>
+  </div>
+  </div>

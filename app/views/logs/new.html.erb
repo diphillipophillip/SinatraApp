@@ -1,0 +1,73 @@
+<center>
+<h2 class='text-light' style='margin-top: 5%'>This is where you will Log your workout. Take a look at the various options you have, and choose which ever option applies to your specific workout!</h2> 
+</center>
+
+<% if @log 
+   @log.errors.any? %> 
+  <div id="error_explanation">
+    <h3 class='text-primary'><%= (@log.errors.count) %> Error(s) prohibited this log from being saved:</h3>
+ 
+    <ul>
+    <% @log.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<center>
+<form method="POST" action='/logs'> 
+<div class="col-sm-3 my-1">
+    <label class='sr-only' for='workout_type'>Workout Type:</label>
+    <input class='form-control' type="text" name="workout_type" placeholder="Workout Type">
+</div>
+
+<div class="col-sm-3 my-1">
+    <label class='sr-only' for='date'>Date:</label>
+    <input class='form-control' type="text" name="date" placeholder='Date'>
+</div>
+
+<div class="col-sm-3 my-1">
+    <label class='sr-only' for='weight'>Weight:</label>
+    <input class='form-control' type="text" name="weight" placeholder='Weight'>
+</div>
+
+<div class="col-sm-3 my-1">
+    <label class='sr-only' for='sets'>Sets:</label>
+    <input class='form-control' type="text" name="sets" placeholder='Sets'>
+</div>
+
+<div class='col-sm-3 my-1'>
+    <label class='sr-only' for='reps'>Reps:</label>
+    <input class='form-control' type="text" name="reps" placeholder='Reps'>
+</div>
+
+<div class='col-sm-3 my-1'>
+    <label class='sr-only' for='time'>Time:</label>
+    <input class='form-control' type="text" name="time" placeholder='Time'>
+</div>
+
+<div class='col-sm-3 my-1'>
+    <label class='sr-only' for='distance'>Distance:</label>
+    <input class='form-control' type="text" name="distance" placeholder='Distance'>
+</div>
+
+
+<div class='col-sm-3 my-1'>
+    <label class='sr-only' for='notes'>Notes:</label>
+    <textarea class='form-control' type="text" name="notes" placeholder='Notes' rows='3'></textarea>
+</div>
+</center>
+
+<center>
+<input class='btn btn-primary' style='margin-top: 2%' type="submit" value="Submit">
+</center> 
+</form>
+
+<hr class='bg-light' width='50%'>
+
+<center>
+<form method='GET' action='/logout'> 
+<button class='btn btn-primary' type="submit" value="Submit">Logout</button> 
+</form>
+</center>

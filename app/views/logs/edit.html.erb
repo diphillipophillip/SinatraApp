@@ -1,0 +1,54 @@
+<center>
+<h2 class='text-light' style='margin-top: 10%'>Edit Your Workout!</h2>
+<h4 class='text-light'>Remeber, a Log needs to have a Workout Type, Date, and at least one other field in order to update.</h4>
+</center>
+
+<center>
+<form method="POST" action='/logs/<%=@log.id%>'>
+<input id="hidden" type="hidden" name="_method" value="patch">
+  <div class="col-sm-3 my-1">
+  <label class='sr-only' for='workout_type'>Workout Type:</label>
+  <input class='form-control' type="text" name="workout_type" value='<%=@log.workout_type%>' placeholder="Workout Type">
+</div>
+
+<div class="col-sm-3 my-1">
+  <label class='sr-only' for='date'>Date:</label>
+  <input class='form-control' type="text" name="date" value='<%=@log.date%>' placeholder='Date'>
+</div>
+
+<div class="col-sm-3 my-1">
+  <label class='sr-only' for='weight'>Weight:</label>
+  <input class='form-control' type="text" name="weight" value='<%=@log.weight%>' placeholder='Weight'>
+</div>
+
+<div class="col-sm-3 my-1">
+  <label class='sr-only' for='sets'>Sets:</label>
+  <input class='form-control' type="text" name="sets" value='<%=@log.sets%>' placeholder='Sets'>
+</div>
+
+<div class='col-sm-3 my-1'>
+  <label class='sr-only' for='reps'>Reps:</label>
+  <input class='form-control' type="text" name="reps" value='<%=@log.reps%>' placeholder='Reps'>
+</div>
+
+<div class='col-sm-3 my-1'>
+  <label class='sr-only' for='time'>Time:</label>
+  <input class='form-control' type="text" name="time" value='<%=@log.time%>' placeholder='Time'>
+</div>
+
+<div class='col-sm-3 my-1'>
+  <label class='sr-only' for='distance'>Distance:</label>
+  <input class='form-control' type="text" name="distance" value='<%=@log.distance%>' placeholder='Distance'>
+</div>
+
+
+<div class='col-sm-3 my-1'>
+  <label class='sr-only' for='notes'>Notes:</label>
+  <textarea class='form-control' type="text" name="notes" placeholder='Notes' rows='3'><%=@log.notes%></textarea>
+</div>
+</center>
+
+  <center>
+  <button class='btn btn-primary' style='margin-top: 2%' type="submit" value="Submit">Submit</button>
+  </center>
+</form>

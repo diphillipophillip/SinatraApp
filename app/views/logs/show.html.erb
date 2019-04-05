@@ -1,0 +1,60 @@
+<center style='margin-top: 20%'>
+<h1 class='text-light'> Edit, Delete, or View Logs. </h1>
+</center>
+
+<center>
+<% if @log.workout_type != "" %>
+   <h3 class='text-primary'> Workout Type: <%= @log.workout_type %></h3>
+   <%end%>
+
+<% if @log.date != "" %>
+   <h3 class='text-primary'> Date: <%= @log.date %></h3>
+   <%end%>  
+
+<% if @log.reps != nil %>
+   <h3 class='text-primary'> Reps: <%= @log.reps %></h3>
+   <%end%>
+
+<% if @log.sets != nil %>
+   <h3 class='text-primary'> Sets: <%= @log.sets %></h3>
+   <%end%>
+
+<% if @log.weight != nil %>
+   <h3 class='text-primary'> Weight: <%= @log.weight %></h3>
+   <%end%> 
+
+<% if @log.time != "" %>
+   <h3 class='text-primary'> Time: <%=  @log.time %></h3>
+   <%end%> 
+
+<% if @log.distance != "" %>
+   <h3 class='text-primary'> Distance: <%= @log.distance %></h3>
+   <%end%> 
+
+<% if @log.notes != "" %>
+   <h3 class='text-primary'> Notes: <%= @log.notes %></h3> 
+    <%end%>
+</center> 
+
+<hr class='bg-light' width='50%'>
+
+<div class='row d-flex justify-content-center'>
+<form class="m-1" method='GET' action='/logs/<%=@log.id%>/edit'> 
+<button class='btn btn-primary' type="submit" value="Submit">Edit</button>
+</form>
+
+<form class='m-1' method="POST" action="/logs/<%=@log.id%>">
+  <input type="hidden" name="_method" value="DELETE" />
+  <input class='btn btn-primary' type="submit" value="delete" />
+</form> 
+
+<form class='m-1' method='GET' action='/logs'> 
+<button class='btn btn-primary' type="submit" value="Submit">View Logs</button> 
+</form>
+
+<form class='m-1' method='GET' action='/logout'> 
+<button class='btn btn-primary' type="submit" value="Submit">Logout</button> 
+</form>
+</div> 
+
+
